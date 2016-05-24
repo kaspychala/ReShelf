@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/viewA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/addView"
+                android:src="@drawable/add"
+                android:alpha=".75"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/viewB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="345dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:text="Author"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/AuthorView" />
+
+            <View
+                android:layout_width="330dp"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal"/>
+
+            <EditText
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/EditAuthor"
+                android:hint="Author"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="345dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:text="Title"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/TitleView" />
+
+            <View
+                android:layout_width="330dp"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal"/>
+
+            <EditText
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/EditTitle"
+                android:hint="Title"
+                android:layout_gravity="center_horizontal" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="91dp"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="ADD"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/button_highlight_add"
+                android:onClick="foo"
+                android:id="@+id/add"
+                android:layout_gravity="right" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/photo1"
+        app:layout_anchor="@id/viewA"
+        app:layout_anchorGravity="bottom|right|end"/>
+
+</android.support.design.widget.CoordinatorLayout>
