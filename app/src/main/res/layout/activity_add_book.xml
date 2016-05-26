@@ -39,31 +39,6 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
-                android:text="Author"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                android:id="@+id/AuthorView" />
-
-            <View
-                android:layout_width="330dp"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimary"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="center_horizontal"/>
-
-            <EditText
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/EditAuthor"
-                android:hint="Author"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:layout_width="345dp"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="20dp"
                 android:text="Title"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
@@ -83,26 +58,30 @@
                 android:hint="Title"
                 android:layout_gravity="center_horizontal" />
 
+            <TextView
+                android:layout_width="345dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:text="Author"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/AuthorView" />
+
             <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_width="330dp"
+                android:layout_height="2dp"
                 android:background="@color/colorPrimary"
                 android:layout_alignParentBottom="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="91dp"/>
+                android:layout_gravity="center_horizontal"/>
 
-            <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="ADD"
-                android:textStyle="bold"
-                android:textSize="25dp"
-                android:textColor="@color/colorPrimary"
-                android:background="@drawable/button_highlight_add"
-                android:onClick="foo"
-                android:id="@+id/add"
-                android:layout_gravity="right" />
+            <EditText
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/EditAuthor"
+                android:hint="Author"
+                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
 
