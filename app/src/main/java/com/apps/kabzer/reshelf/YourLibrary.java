@@ -7,31 +7,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.List;
 
 public class YourLibrary extends android.support.v4.app.Fragment{
-    private ListView listView;
+
+    ListView listView;
+    DatabaseHandler db;
+    List<Books> books;
+    ListAdapter adapter;
+    RowBook RowBook_data[];
 
     public YourLibrary() {
         // Required empty public constructor
     }
 
     public void redraw(View view){
-        DatabaseHandler db = new DatabaseHandler(getActivity());
-        List<Books> books = db.getAllBooks();
+        db = new DatabaseHandler(getActivity());
+        books = db.getAllBooks();
 
-        RowBook RowBook_data[] = new RowBook[books.size()];
+        RowBook_data = new RowBook[books.size()];
         for(int i=0; i<books.size(); i++){
             RowBook_data[i] = new RowBook(R.drawable.add, books.get(i).getTitle() , books.get(i).getAuthor());
         }
 
 
 
-        ListAdapter adapter = new ListAdapter(getActivity(), R.layout.row_book, RowBook_data);
+        adapter = new ListAdapter(getActivity(), R.layout.row_book, RowBook_data);
         listView = (ListView)view.findViewById(R.id.listView);
         listView.setAdapter(adapter);
     }
@@ -40,22 +43,12 @@ public class YourLibrary extends android.support.v4.app.Fragment{
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
 
-        final DatabaseHandler db = new DatabaseHandler(getActivity());
-        final List<Books> books = db.getAllBooks();
 
-        RowBook RowBook_data[] = new RowBook[books.size()];
-        for(int i=0; i<books.size(); i++){
-           RowBook_data[i] = new RowBook(R.drawable.add, books.get(i).getTitle() , books.get(i).getAuthor());
-           //RowBook_data[i] = new RowBook(R.drawable.add, "Game of Thrones", "George R.R. Martin");
-        }
 
 
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.your_library, container, false);
-        final ListAdapter adapter = new ListAdapter(getActivity(), R.layout.row_book, RowBook_data);
-
-        listView = (ListView)view.findViewById(R.id.listView);
-        listView.setAdapter(adapter);
+        redraw(view);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
