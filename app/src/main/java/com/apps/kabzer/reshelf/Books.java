@@ -8,22 +8,28 @@ public class Books {
     int id;
     String author;
     String title;
+    String genre;
+    String path;
 
     // Empty constructor
     public Books(){
 
     }
     // constructor
-    public Books(int id, String author, String title){
+    public Books(int id, String author, String title, String genre, String path){
         this.id = id;
         this.author = author;
         this.title = title;
+        this.genre = genre;
+        this.path = path;
     }
 
     // constructor
-    public Books(String author, String title){
+    public Books(String author, String title, String genre, String path){
         this.author = author;
         this.title = title;
+        this.genre = genre;
+        this.path = path;
     }
     // getting ID
     public int getID(){
@@ -54,5 +60,23 @@ public class Books {
     public void setTitle(String title){
         this.title = title;
     }
+
+    // getting genre
+    public String getGenre(){
+        return this.genre;
+    }
+
+    // setting genre
+    public void setGenre(String genre){
+        this.genre = genre;
+    }
+
+    // getting genre
+    public String getPath(){
+        return this.path;
+    }
+
+    // setting genre
+    public void setPath(String path){ this.path = path; }
 }
 

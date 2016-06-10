@@ -9,9 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Kasper on 23.05.2016.
- */
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     // All Static variables
@@ -28,6 +25,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_ID = "id";
     private static final String KEY_AUTHOR = "author";
     private static final String KEY_TITLE = "title";
+    private static final String KEY_GENRE = "genre";
+    private static final String KEY_PATH = "path";
+
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -38,7 +38,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_Books_TABLE = "CREATE TABLE " + TABLE_BOOKS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_AUTHOR + " TEXT,"
-                + KEY_TITLE + " TEXT" + ")";
+                + KEY_TITLE + " TEXT," + KEY_GENRE + " TEXT," + KEY_PATH +
+                " TEXT" + ")";
         db.execSQL(CREATE_Books_TABLE);
     }
 
@@ -62,6 +63,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_AUTHOR, books.getAuthor()); // Books Author
         values.put(KEY_TITLE, books.getTitle()); // Books Title
+        values.put(KEY_GENRE, books.getGenre());// Books Genre
+        values.put(KEY_PATH, books.getPath());// Books Photo Path
 
         // Inserting Row
         db.insert(TABLE_BOOKS, null, values);
@@ -73,13 +76,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_BOOKS, new String[] { KEY_ID,
-                        KEY_AUTHOR, KEY_TITLE }, KEY_ID + "=?",
+                        KEY_AUTHOR, KEY_TITLE, KEY_GENRE, KEY_PATH }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
         Books books = new Books(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2));
+                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
         // return book
         return books;
     }
@@ -100,6 +103,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 books.setID(Integer.parseInt(cursor.getString(0)));
                 books.setAuthor(cursor.getString(1));
                 books.setTitle(cursor.getString(2));
+                books.setGenre(cursor.getString(3));
+                books.setPath(cursor.getString(4));
                 // Adding books to list
                 booksList.add(books);
             } while (cursor.moveToNext());
@@ -115,7 +120,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_AUTHOR, books.getAuthor());
         values.put(KEY_TITLE, books.getTitle());
-
+        values.put(KEY_GENRE, books.getGenre());
+        values.put(KEY_PATH, books.getPath());
         // updating row
         return db.update(TABLE_BOOKS, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(books.getID()) });

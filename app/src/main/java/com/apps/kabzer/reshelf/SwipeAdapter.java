@@ -12,7 +12,7 @@ public class SwipeAdapter extends FragmentStatePagerAdapter{
 
     @Override
     public Fragment getItem(int i) {
-        String[] welcomeScreenBig = {"Prepare your books.", "Take a photo.", "Write a title.", "Simply resell your books."};
+        String[] welcomeScreenBig = {"Prepare your books.", "Take a photo.", "Write a title.", "Simply manage your books."};
         Fragment fragment = new PageFragment();
         Bundle bundle = new Bundle();
         bundle.putString("count", welcomeScreenBig[i]);

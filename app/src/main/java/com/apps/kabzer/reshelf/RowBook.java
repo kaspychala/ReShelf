@@ -18,5 +18,9 @@ public class RowBook {
         this.title = title;
         this.author = author;
     }
+
+    public String getTitle(){
+        return title;
+    }
 }
 

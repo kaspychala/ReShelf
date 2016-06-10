@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_camara" android:icon="@android:drawable/ic_menu_camera"
-            android:title="Import" />
-        <item android:id="@+id/nav_gallery" android:icon="@android:drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item android:id="@+id/nav_slideshow" android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
-
-    <item android:title="Communicate">
+    <item android:title="Library">
         <menu>
-            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
-                android:title="Share" />
-            <item android:id="@+id/nav_send" android:icon="@android:drawable/ic_menu_send"
-                android:title="Send" />
+            <item android:id="@+id/library_all" android:icon="@drawable/add_plain"
+                android:title="All" />
+            <item android:id="@+id/library_fantasy" android:icon="@drawable/fantasy_ico"
+                android:title="Fantasy" />
+            <item android:id="@+id/library_biography" android:icon="@drawable/biography_ico"
+                android:title="Biography" />
+            <item android:id="@+id/library_history" android:icon="@drawable/history_ico"
+                android:title="History" />
+            <item android:id="@+id/library_horror" android:icon="@drawable/horror_ico"
+                android:title="Horror" />
+            <item android:id="@+id/library_adventure" android:icon="@drawable/adventure_ico"
+            android:title="Adventure" />
+            <item android:id="@+id/library_sci_fi" android:icon="@drawable/scifi_ico"
+                android:title="Sci-Fi" />
+            <item android:id="@+id/library_thriller" android:icon="@drawable/thriller_ico"
+                android:title="Thriller" />
         </menu>
     </item>
+
+    <!-- Feature to add later
+    <item android:title="Borrowed">
+        <menu>
+            <item android:id="@+id/borrowed_all" android:icon="@android:drawable/ic_media_play"
+                android:title="All" />
+            <item android:id="@+id/borrowed_fantasy" android:icon="@android:drawable/ic_media_play"
+                android:title="Fantasy" />
+            <item android:id="@+id/borrowed_biography" android:icon="@android:drawable/ic_media_play"
+                android:title="Biography" />
+            <item android:id="@+id/borrowed_history" android:icon="@android:drawable/ic_media_play"
+                android:title="History" />
+            <item android:id="@+id/borrowed_horror" android:icon="@android:drawable/ic_media_play"
+                android:title="Horror" />
+            <item android:id="@+id/borrowed_adventure" android:icon="@android:drawable/ic_media_play"
+                android:title="Adventure" />
+            <item android:id="@+id/borrowed_sci_fi" android:icon="@android:drawable/ic_media_play"
+                android:title="Sci-Fi" />
+            <item android:id="@+id/borrowed_thriller" android:icon="@android:drawable/ic_media_play"
+                android:title="Thriller" />
+        </menu>
+    </item>
+    -->
 
 </menu>
