@@ -135,17 +135,4 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-
-    // Getting Books Count
-    //MAKING APP CRASH!
-    public int getBooksCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_BOOKS;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-        cursor.close();
-
-        // return count
-        return cursor.getCount();
-    }
-
 }

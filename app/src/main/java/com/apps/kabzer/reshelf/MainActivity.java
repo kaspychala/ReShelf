@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 public class MainActivity extends FragmentActivity {
+
     ViewPager viewPager;
     Button skip;
     Button next;

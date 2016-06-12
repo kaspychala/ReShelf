@@ -25,7 +25,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.Toast;
 
 import java.io.File;
 import java.util.List;
@@ -38,13 +37,13 @@ public class ReshelfActivity extends AppCompatActivity
     List<Books> books;
     ListAdapter adapter;
     RowBook RowBook_data[];
-    Integer count = new Integer(0);
+    int count;
     String genre = "All";
     Button btnClosePopup;
     PopupWindow pwindo;
     Bitmap thePic;
     ImageView imageView;
-    Integer itemPosition = new Integer(0);
+    int itemPosition;
     Intent settings;
 
     public void initiatePopupWindow() {
@@ -77,6 +76,7 @@ public class ReshelfActivity extends AppCompatActivity
         db = new DatabaseHandler(this);
         books = db.getAllBooks();
 
+        //Refresh all books
         RowBook_data = new RowBook[books.size()];
         if(genre.equals("All")) {
             for (int i = 0; i < books.size(); i++) {
@@ -100,7 +100,7 @@ public class ReshelfActivity extends AppCompatActivity
             }
             count = 0;
         }
-
+        //Refresh biography section
         else if(genre.equals("Biography")) {
             for (int i = 0; i < books.size(); i++) {
                 if(books.get(i).getGenre().equals(genre)) {
@@ -117,7 +117,7 @@ public class ReshelfActivity extends AppCompatActivity
             }
             count = 0;
         }
-
+        //Refresh history section
         else if(genre.equals("History")) {
             for (int i = 0; i < books.size(); i++) {
                 if(books.get(i).getGenre().equals(genre)) {
@@ -134,7 +134,7 @@ public class ReshelfActivity extends AppCompatActivity
             }
             count = 0;
         }
-
+        //Refresh horror section
         else if(genre.equals("Horror")) {
             for (int i = 0; i < books.size(); i++) {
                 if(books.get(i).getGenre().equals(genre)) {
@@ -151,7 +151,7 @@ public class ReshelfActivity extends AppCompatActivity
             }
             count = 0;
         }
-
+        //Refresh adventure section
         else if(genre.equals("Adventure")) {
             for (int i = 0; i < books.size(); i++) {
                 if(books.get(i).getGenre().equals(genre)) {
@@ -168,7 +168,7 @@ public class ReshelfActivity extends AppCompatActivity
             }
             count = 0;
         }
-
+        //Refresh sci-fi section
         else if(genre.equals("Sci-Fi")) {
             for (int i = 0; i < books.size(); i++) {
                 if(books.get(i).getGenre().equals(genre)) {
@@ -185,7 +185,7 @@ public class ReshelfActivity extends AppCompatActivity
             }
             count = 0;
         }
-
+        //Refresh thriller section
         else if(genre.equals("Thriller")) {
             for (int i = 0; i < books.size(); i++) {
                 if(books.get(i).getGenre().equals(genre)) {
@@ -238,6 +238,7 @@ public class ReshelfActivity extends AppCompatActivity
                 initiatePopupWindow();
             }
         });
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,

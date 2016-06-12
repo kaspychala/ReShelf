@@ -71,12 +71,12 @@ public class Books {
         this.genre = genre;
     }
 
-    // getting genre
+    // getting path
     public String getPath(){
         return this.path;
     }
 
-    // setting genre
+    // setting path
     public void setPath(String path){ this.path = path; }
 }
 

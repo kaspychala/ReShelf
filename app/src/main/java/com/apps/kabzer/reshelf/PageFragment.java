@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class PageFragment extends android.support.v4.app.Fragment  {
+
     TextView textView;
     ImageView imageView;
     private int[] images = new int[] {R.drawable.photo3, R.drawable.photo1, R.drawable.photo2, R.drawable.photo4, };

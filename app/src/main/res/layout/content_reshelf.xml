@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_reshelf" tools:context="com.apps.kabzer.reshelf.ReshelfActivity">
+    tools:showIn="@layout/app_bar_reshelf" tools:context="com.apps.kabzer.reshelf.ReshelfActivity"
+    android:id="@+id/reshelfLayout">
 
 
     <ListView

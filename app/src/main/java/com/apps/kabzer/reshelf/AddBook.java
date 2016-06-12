@@ -30,6 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddBook extends AppCompatActivity{
+
     EditText author;
     EditText title;
     DatabaseHandler db;
@@ -125,9 +126,6 @@ public class AddBook extends AppCompatActivity{
                 cropIntent.setDataAndType(picUri, "image/*");
                 // set crop properties
                 cropIntent.putExtra("crop", "true");
-                // indicate output X and Y
-                /////intent.putExtra("outputX", 200);
-               //////intent.putExtra("outputY", 200);
                 // save file on sdcard
                 path = new File(Environment.getExternalStorageDirectory(), "reshelf_data");
                 if(!path.exists()){
@@ -152,7 +150,7 @@ public class AddBook extends AppCompatActivity{
 
                 cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, picUri);
 
-                // start the activity - we handle returning in onActivityResult
+                // start the activity - handle returning in onActivityResult
                 startActivityForResult(cropIntent, CROP_PIC);
             }
             // respond to users whose devices do not support the crop action
@@ -187,9 +185,15 @@ public class AddBook extends AppCompatActivity{
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add) {
-            db.addBook(new Books(author.getText().toString(), title.getText().toString(), genre, filePath));
-            finish();
-            return true;
+            if(author.getText().toString() == null || title.getText().toString() == null
+                    || genre == null || filePath == null){
+                Toast.makeText(AddBook.this, "Complete your book before adding!", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                db.addBook(new Books(author.getText().toString(), title.getText().toString(), genre, filePath));
+                finish();
+                return true;
+            }
         }
 
         return super.onOptionsItemSelected(item);
