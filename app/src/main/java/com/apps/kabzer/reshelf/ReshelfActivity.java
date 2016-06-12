@@ -45,6 +45,7 @@ public class ReshelfActivity extends AppCompatActivity
     Bitmap thePic;
     ImageView imageView;
     Integer itemPosition = new Integer(0);
+    Intent settings;
 
     public void initiatePopupWindow() {
         try {
@@ -55,7 +56,7 @@ public class ReshelfActivity extends AppCompatActivity
             thePic = BitmapFactory.decodeFile(books.get(itemPosition).getPath());
             imageView = (ImageView)layout.findViewById(R.id.popUpImage);
             imageView.setImageBitmap(thePic);
-            pwindo = new PopupWindow(layout, 650, 750, true);
+            pwindo = new PopupWindow(layout, 600, 860, true);
             pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
             btnClosePopup = (Button) layout.findViewById(R.id.btn_close_popup);
@@ -217,6 +218,7 @@ public class ReshelfActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         final Intent intent = new Intent(this,AddBook.class);
+        settings = new Intent(this, Settings.class);
         getSupportActionBar().setTitle("All");
         redraw("all");
 
@@ -318,6 +320,7 @@ public class ReshelfActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(settings);
             return true;
         }
 
@@ -362,23 +365,7 @@ public class ReshelfActivity extends AppCompatActivity
             getSupportActionBar().setTitle("Thriller");
             genre = "Thriller";
             redraw(genre);
-        } /* else if (id == R.id.borrowed_all) { // Feature to add later
-            getSupportActionBar().setTitle("Borrowed - All");
-        } else if (id == R.id.borrowed_fantasy) {
-            getSupportActionBar().setTitle("Borrowed - Fantasy");
-        } else if (id == R.id.borrowed_biography) {
-            getSupportActionBar().setTitle("Borrowed - Biography");
-        } else if (id == R.id.borrowed_history) {
-            getSupportActionBar().setTitle("Borrowed - History");
-        }else if (id == R.id.borrowed_horror) {
-            getSupportActionBar().setTitle("Borrowed - Horror");
-        } else if (id == R.id.borrowed_adventure) {
-            getSupportActionBar().setTitle("Borrowed - Adventure");
-        } else if (id == R.id.borrowed_sci_fi) {
-            getSupportActionBar().setTitle("Borrowed - Sci-Fi");
-        } else if (id == R.id.borrowed_thriller) {
-            getSupportActionBar().setTitle("Borrowed - Thriller");
-        } */
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

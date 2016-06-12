@@ -22,27 +22,4 @@
         </menu>
     </item>
 
-    <!-- Feature to add later
-    <item android:title="Borrowed">
-        <menu>
-            <item android:id="@+id/borrowed_all" android:icon="@android:drawable/ic_media_play"
-                android:title="All" />
-            <item android:id="@+id/borrowed_fantasy" android:icon="@android:drawable/ic_media_play"
-                android:title="Fantasy" />
-            <item android:id="@+id/borrowed_biography" android:icon="@android:drawable/ic_media_play"
-                android:title="Biography" />
-            <item android:id="@+id/borrowed_history" android:icon="@android:drawable/ic_media_play"
-                android:title="History" />
-            <item android:id="@+id/borrowed_horror" android:icon="@android:drawable/ic_media_play"
-                android:title="Horror" />
-            <item android:id="@+id/borrowed_adventure" android:icon="@android:drawable/ic_media_play"
-                android:title="Adventure" />
-            <item android:id="@+id/borrowed_sci_fi" android:icon="@android:drawable/ic_media_play"
-                android:title="Sci-Fi" />
-            <item android:id="@+id/borrowed_thriller" android:icon="@android:drawable/ic_media_play"
-                android:title="Thriller" />
-        </menu>
-    </item>
-    -->
-
 </menu>
