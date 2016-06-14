@@ -36,7 +36,7 @@ public class AddBook extends AppCompatActivity{
     DatabaseHandler db;
     final int CAMERA_CAPTURE = 1;
     final int CROP_PIC = 2;
-    private Uri picUri;
+    Uri picUri;
     Bitmap thePic;
     File path;
     Button button;
@@ -64,6 +64,18 @@ public class AddBook extends AppCompatActivity{
                         Intent captureIntent = new Intent(
                                 MediaStore.ACTION_IMAGE_CAPTURE);
                         // we will handle the returned data in onActivityResult
+                        path = new File(Environment.getExternalStorageDirectory(), "reshelf_data");
+                        if(!path.exists()){
+                            try {
+                                path.mkdir();
+                            } catch (Exception ex) {
+                                Log.e("io", ex.getMessage());
+                            }
+
+                        }
+                        File file = new File(Environment.getExternalStorageDirectory()+"/reshelf_data/temp.jpg");
+                        Uri outputFileUri = Uri.fromFile(file);
+                        captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
                         startActivityForResult(captureIntent, CAMERA_CAPTURE);
                     } catch (ActivityNotFoundException anfe) {
                         Toast toast = Toast.makeText(getApplicationContext(), "Can't crop, sorry m8", Toast.LENGTH_LONG);
@@ -95,12 +107,14 @@ public class AddBook extends AppCompatActivity{
             if (resultCode == RESULT_OK) {
                 if (requestCode == CAMERA_CAPTURE) {
                     // get the Uri for the captured image
-                    picUri = data.getData();
+                    //picUri = data.getData();
                     performCrop();
                 }
                 // user is returning from cropping the image
                 else if (requestCode == CROP_PIC) {
                     // get the returned data
+                    File file = new File(Environment.getExternalStorageDirectory()+"/reshelf_data/temp.jpg");
+                    file.delete();
 
                     filePath = path
                             + "/"+currentDateandTime+".jpg";
@@ -121,6 +135,9 @@ public class AddBook extends AppCompatActivity{
             try {
                 // call the standard crop action intent (the user device may not
                 // support it)
+                File file = new File(Environment.getExternalStorageDirectory()+"/reshelf_data/temp.jpg");
+                picUri = Uri.fromFile(file);
+
                 Intent cropIntent = new Intent("com.android.camera.action.CROP");
                 // indicate image type and Uri
                 cropIntent.setDataAndType(picUri, "image/*");
@@ -164,6 +181,8 @@ public class AddBook extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
+        File file = new File(Environment.getExternalStorageDirectory()+"/reshelf_data/"+currentDateandTime+".jpg");
+        file.delete();
         finish();
 
     }
